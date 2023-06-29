@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="repo-title">Listagem de repositório</h1>
+
+<ul class="repo-list">
+    <li *ngFor="let repo of repos">
+      <div class="repo-item">
+        <div class="repo-header">
+          <img class="repo-image" [src]="repo.owner.avatar_url" alt="Imagem do repositório">
+          <a class="repo-link" [href]="repo.html_url" target="_blank">
+            <h3 class="repo-name">{{ repo.name }}</h3>
+          </a>
+        </div>
+        <div class="repo-description">
+          <p>{{ repo.description }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  
+  
+<div class="nav">
+  <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+  <button class="btn btn-primary" (click)="nextPage()">Próxima</button>
+</div>
+
+
+<link rel="stylesheet" href="./repo-list.component.css">
+    
+</body>
+</html>
