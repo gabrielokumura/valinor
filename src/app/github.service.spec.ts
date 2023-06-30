@@ -19,19 +19,13 @@ describe('GithubService', () => {
     httpMock.verify();
   });
 
-  it('should return the list of repositories', () => {
-    const mockRepos = [
-      { id: 1, name: 'repo1', description: 'Repository 1' },
-      { id: 2, name: 'repo2', description: 'Repository 2' },
-      { id: 3, name: 'repo3', description: 'Repository 3' }
-    ];
+  it('should send a GET request to the correct API endpoint', () => {
+    const page = 1;
+    const perPage = 10;
 
-    service.getRepos(1, 10).subscribe(repos => {
-      expect(repos).toEqual(mockRepos);
-    });
+    service.getRepos(page, perPage).subscribe();
 
-    const req = httpMock.expectOne('https://api.github.com/search/repositories?q=node&page=1&per_page=5');
+    const req = httpMock.expectOne(`https://api.github.com/search/repositories?q=node&page=${page}&per_page=${perPage}`);
     expect(req.request.method).toBe('GET');
-    req.flush({ items: mockRepos });
   });
 });

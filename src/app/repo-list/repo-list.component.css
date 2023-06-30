@@ -55,6 +55,7 @@
   
 
 .repo-list {
+  margin-top: 100px;
     list-style: none;
     padding: 0;
     text-align: center;
@@ -128,3 +129,28 @@
     font-weight: bold;
   }
   
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .logo-container {
+    margin-right: 10px;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .title {
+    margin: 0;
+  }

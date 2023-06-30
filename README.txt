@@ -25,7 +25,6 @@ Este é um projeto de exemplo que exibe uma lista paginada de repositórios do G
 
 1. Clone o repositório para o seu ambiente local:
 
-```bash
 git clone <URL_DO_REPOSITÓRIO>
 
 2. Acesse o diretório do projeto:
@@ -37,7 +36,7 @@ npm install
 
 4.Inicie o servidor de desenvolvimento:
 
-npm install
+ng serve
 
 5.Abra o navegador e acesse a seguinte URL:
 http://localhost:4200
