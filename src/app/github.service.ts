@@ -8,8 +8,10 @@ import { Observable } from 'rxjs';
 export class GithubService {
   constructor(private http: HttpClient) {}
 
-  getRepos(page: number): Observable<any[]> {
-    const perPage = 5;
+  getRepos(page: number,perPage: number): Observable<any[]> {
+    if(perPage == null){
+      perPage = 5
+    }
     const url = `https://api.github.com/search/repositories?q=node&page=${page}&per_page=${perPage}`;
     return this.http.get<any[]>(url);
   }

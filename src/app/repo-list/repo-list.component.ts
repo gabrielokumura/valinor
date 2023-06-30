@@ -10,14 +10,17 @@ export class RepoListComponent implements OnInit {
   repos: any[] = [];
   currentPage: number = 1; // Página atual
 
+  selectedItemsPerPage: number = 10; // Valor padrão inicial
+
   constructor(private githubService: GithubService) {}
 
   ngOnInit() {
     this.loadRepos();
   }
 
+
   loadRepos() {
-    this.githubService.getRepos(this.currentPage).subscribe((data: any) => {
+    this.githubService.getRepos(this.currentPage, this.selectedItemsPerPage).subscribe((data: any) => {
       this.repos = data?.items || [];
     });
   }
@@ -25,6 +28,11 @@ export class RepoListComponent implements OnInit {
 
   nextPage() {
     this.currentPage++;
+    this.loadRepos();
+  }
+
+  goToPage(page: number){
+    this.currentPage = page;
     this.loadRepos();
   }
 

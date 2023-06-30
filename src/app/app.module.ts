@@ -7,18 +7,21 @@ import { RepoListComponent } from './repo-list/repo-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubService } from './github.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RepoListComponent,
+    RepoListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]
